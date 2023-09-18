@@ -1,0 +1,161 @@
+#!/bin/bash
+
+if test -e s21_grep
+then echo "success s21_grep exist"
+else echo "fail s21_grep doesn't exist"
+fi
+
+grep deer 1.txt > g.txt
+./s21_grep deer 1.txt > k.txt
+if diff g.txt k.txt
+then echo "1 success for 1 file"
+else echo "1 fail for 1 file\n"
+fi
+
+grep -f reg.txt 1.txt > g.txt
+./s21_grep -f reg.txt 1.txt > k.txt
+if diff g.txt k.txt
+then echo "2 success -f for 1 file"
+else echo "2 fail -f for 1 file\n"
+fi
+
+grep -f reg.txt reg1.txt 1.txt 2.txt 4.txt > g.txt
+./s21_grep -f reg.txt reg1.txt 1.txt 2.txt 4.txt > k.txt
+if diff g.txt k.txt
+then echo "3 success -f for 2 pattern files and 3 text files"
+else echo "\n3 fail -f for 2 pattern files and 3 text files\n"
+fi
+
+grep -e M -e a 1.txt > g.txt
+./s21_grep -e M -e a 1.txt > k.txt
+if diff g.txt k.txt
+then echo "4 success -e for 1 file"
+else echo "\n4 fail -e for 1 file\n"
+fi
+
+grep -i A 1.txt > g.txt
+./s21_grep -i A 1.txt > k.txt
+if diff g.txt k.txt
+then echo "5 success -i for 1 file"
+else echo "\n5 fail -i for 1 file\n"
+fi
+
+grep -v M 1.txt > g.txt
+./s21_grep -v M 1.txt > k.txt
+if diff g.txt k.txt
+then echo "6 success -v for 1 file"
+else echo "\n6 fail -v for 1 file\n"
+fi
+
+grep -c M 1.txt > g.txt
+./s21_grep -c M 1.txt > k.txt
+if diff g.txt k.txt
+then echo "7 success -c for 1 file"
+else echo "\n7 fail -c for 1 file\n"
+fi
+
+grep -l M 1.txt > g.txt
+./s21_grep -l M 1.txt > k.txt
+if diff g.txt k.txt
+then echo "8 success -l for 1 file"
+else echo "\n8 fail -l for 1 file\n"
+fi
+
+grep -n M 1.txt > g.txt
+./s21_grep -n M 1.txt > k.txt
+if diff g.txt k.txt
+then echo "9 success -n for 1 file"
+else echo "\n9 fail -n for 1 file\n"
+fi
+
+grep -h M 1.txt > g.txt
+./s21_grep -h M 1.txt > k.txt
+if diff g.txt k.txt
+then echo "10 success -h for 1 file"
+else echo "\n10 fail -h for 1 file\n"
+fi
+
+grep -s M no.txt > g.txt
+./s21_grep -s M no.txt > k.txt
+if diff g.txt k.txt
+then echo "11 success -s for 1 file"
+else echo "\n11 fail -s for 1 file\n"
+fi
+
+grep -c X 1.txt > g.txt
+./s21_grep -c X 1.txt > k.txt
+if diff g.txt k.txt
+then echo "12 success -c for 1 file (no match)"
+else echo "\n12 fail -c for 1 file (no match)\n"
+fi
+
+
+grep -e M -e a 1.txt 2.txt 4.txt > g.txt
+./s21_grep -e M -e a 1.txt 2.txt 4.txt > k.txt
+if diff g.txt k.txt
+then echo "13 success -e for 3 files"
+else echo "\n13 fail -e for 3 files\n"
+fi
+
+grep -e ^M 1.txt 2.txt 4.txt > g.txt
+./s21_grep -e ^M 1.txt 2.txt 4.txt > k.txt
+if diff g.txt k.txt
+then echo "14 success -e for 3 files"
+else echo "\n14 fail -e for 3 files\n"
+fi
+
+grep -i A 1.txt 2.txt 4.txt > g.txt
+./s21_grep -i A 1.txt 2.txt 4.txt > k.txt
+if diff g.txt k.txt
+then echo "15 success -i for 3 files"
+else echo "\n15 fail -i for 3 files\n"
+fi
+
+grep -v M 1.txt 2.txt 4.txt > g.txt
+./s21_grep -v M 1.txt 2.txt 4.txt > k.txt
+if diff g.txt k.txt
+then echo "16 success -v for 3 files"
+else echo "\n16 fail -v for 3 files\n"
+fi
+
+grep -c M 1.txt 2.txt 4.txt > g.txt
+./s21_grep -c M 1.txt 2.txt 4.txt > k.txt
+if diff g.txt k.txt
+then echo "17 success -c for 3 files"
+else echo "\n17 fail -c for 3 files\n"
+fi
+
+grep -l M 1.txt 2.txt 4.txt > g.txt
+./s21_grep -l M 1.txt 2.txt 4.txt > k.txt
+if diff g.txt k.txt
+then echo "18 success -l for 3 files"
+else echo "\n18 fail -l for 3 files\n"
+fi
+
+grep -n M 1.txt 2.txt 4.txt > g.txt
+./s21_grep -n M 1.txt 2.txt 4.txt > k.txt
+if diff g.txt k.txt
+then echo "19 success -n for 3 files"
+else echo "\n19 fail -n for 3 files\n"
+fi
+
+grep -h M 1.txt 2.txt 4.txt > g.txt
+./s21_grep -h M 1.txt 2.txt 4.txt > k.txt
+if diff g.txt k.txt
+then echo "20 success -h for 3 files"
+else echo "\n20 fail -h for 3 files\n"
+fi
+
+grep -c X 1.txt > g.txt
+./s21_grep -c X 1.txt > k.txt
+if diff g.txt k.txt
+then echo "21 success -c for 1 file (no match)"
+else echo "\n21 fail -c for 1 file (no match)\n"
+fi
+
+grep -f reg.txt reg1.txt regempty.txt 1.txt 2.txt 4.txt > g.txt
+./s21_grep -f reg.txt reg1.txt 1.txt 2.txt 4.txt > k.txt
+if diff g.txt k.txt
+then echo "22 success -f for 3 pattern files (one empty) and 3 text files"
+else echo "\n22 fail -f for 3 pattern files (one empty) and 3 text files\n"
+fi

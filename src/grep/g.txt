@@ -1,0 +1,9 @@
+1.txt:My heart’s in the Highlands, my heart is not here;
+1.txt:My heart’s in the Highlands, a-chasing the deer;
+1.txt:A-chasing the wild deer, and following the roe,
+1.txt:My heart’s in the Highlands wherever I go.
+2.txt:hello	world
+2.txt:	da
+2.txt:asda
+4.txt:Double, double toil and trouble;
+4.txt:Fire burn and cauldron bubble.
